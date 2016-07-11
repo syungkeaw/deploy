@@ -54,8 +54,8 @@ $this->registerJs("
             })
         );
 
-        var x = e.pageX - origin.left;
-        var y = e.pageY - origin.top;
+        var x = e.pageX - origin.left - 7;
+        var y = e.pageY - origin.top - 7;
 
         $('#shop-location').val(x + ',' + y);
 

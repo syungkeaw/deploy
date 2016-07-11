@@ -52,7 +52,7 @@ return [
     'Element' => 'เสริมธาตุ',
     'Created At' => 'เพิ่ม เวลา',
     'Created By' => 'เพิ่ม โดย',
-    'Updated At' => 'อัพเดท เวลา',
+    'Updated At' => 'อัพเดท ล่าสุด',
     'Updated By' => 'อัพเดท โดย',
     'Defanse' => 'ป้องกัน',
     'Job' => 'อาชีพ',

@@ -18,35 +18,11 @@ $elements = Item::getElements();
 $very = Item::getVeries();
 
 $this->registerJs("
-    var size = 10;
-    var origin = $('.map-picker').offset();
-    var location = '".$model->shop['location']."';
-    if(location !== ''){
-        axis = location.split(',');
-        $('body').append(
-            $('<div class=\"dot\"></div>').css({
-                position: 'absolute',
-                top: (origin.top + parseInt(axis[1])) + 'px',
-                left: (origin.left + parseInt(axis[0])) + 'px',
-                width: size + 'px',
-                height: size + 'px',
-                background: 'red'
-            })
-        );
-    }
 ", View::POS_READY);
 
 $this->registerCss("
 .wrap > .container {
     padding: 0px;
-}
-.map-picker {
-    height: 400px;
-    width: 400px;
-}
-.map-picker>img {
-    height: 100%;
-    width: 100%;
 }
 ");
 
@@ -72,7 +48,7 @@ $this->title = $model->item->nameSlot;
     if($model->shop['map'] && $model->shop['location']){
         array_push($attributes, [
             'label' => Yii::t('app', 'Location'),
-            'value' => '<div class="map-picker">'.Html::img(Yii::getAlias('@web'). '/images/maps/'.$model->shop['map']. '.gif').'</div>',
+            'value' => Html::img(Yii::$app->request->hostInfo. '/tool/shop-location?map='. $model->shop['map']. '.gif&location='. $model->shop['location'], ['style' => 'width: 200px; height:200px;']),
             'format' => 'raw',
         ]);
     }
